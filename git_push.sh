@@ -29,4 +29,9 @@ fi
 
 echo "GIT PUSH STARTED"
 $(git push -u origin main)
+if [ $? -eq 0 ]; then
+        echo "----------DONE----------"
+else
+        echo "----------ERROR----------"
+fi
 
