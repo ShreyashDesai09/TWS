@@ -30,3 +30,4 @@ OR git checkout (branch name)
 
 git remote -v - IT'S A VARIABLE TO IDENTIFY URL
 
+git revert - IT'S USED TO REVERT A COMMIT GIVEN TO A ADDED FILE
