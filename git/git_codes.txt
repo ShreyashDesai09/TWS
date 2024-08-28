@@ -54,4 +54,20 @@ GIT RESET IS A TECH IN WHICH WE CAN REMOVE THE COMMITED FILE
 	THIS IS AVOIDED TYPE
 	IN THIS ALL THE COMMITS AND THE FILES ARE DELETED
 
+git merge - IT IS USED TO DATE OF OTHER BRANCHES TO MAIN BRANCH OR IN WHICH BRANCH YOU WANT
+
+	I.E :- 	MAIN 1 -> 2 -> 3 -> 
+		DEV                 4 -> 5 -> 6
+
+	AFTER MERGE 
+		MAIN 1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+git rebase - IT'S SAME AS MERGE BUT IN MERGE IT'S NOT IN A LINER ORDER
+
+	I.E :- MAIN 1 -> 2 ->      7 -> 8 ->
+		DEV           3 ->           4 -> 5 -> 6 ->
+
+	AFTER git rebase main
+		MAIN 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 
+
 
