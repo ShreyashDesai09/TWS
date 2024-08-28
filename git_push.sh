@@ -26,9 +26,8 @@ if [ $? -eq 0 ]; then
 else
         echo "----------ERROR----------"
 fi
-
 echo "GIT PUSH STARTED"
-$(git push -u origin main)
+echo "$(git push -u origin main)"
 if [ $? -eq 0 ]; then
         echo "----------DONE----------"
 else
