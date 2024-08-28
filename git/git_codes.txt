@@ -30,7 +30,3 @@ OR git checkout (branch name)
 
 git remote -v - IT'S A VARIABLE TO IDENTIFY URL
 
-git revert - IT CAN BE USED TO REVERT A MISTAKE IN A ADDED/COMMITED FILE
-
-
-.....
