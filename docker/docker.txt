@@ -28,5 +28,14 @@ docker -p = IT IS USED TO RUN DOCKER CONTAINER AT A PORT
 		docker run -d -p (port in which you want to access):(port of the image) (image):(verion)
 
 
+docker ps -a - TO SEE ALL BEFORE RUN
 
 
+docker system prune - DELETE ALL STOPED CONTAINERS
+
+
+docker rmi (image name) - TO DELETE IMAGES
+docker rmi -f $(docker ps -aq) - DELETES ALL IMAGES
+
+
+docker build - docker build -t (image name):(version) (location of docker file {always use . i.e current location})
