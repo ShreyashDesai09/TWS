@@ -29,8 +29,10 @@ git switch (branch name) - THIS CAN BE DONE TO CHANGE THE CURRENT IN WORKING BRA
 OR git checkout (branch name)
 
 git remote -v - IT'S A VARIABLE TO IDENTIFY URL
+		git remote -v
 
 git revert - IT'S USED TO REVERT A COMMIT GIVEN TO A ADDED FILE
+		git revert (commit name)
 
 *There are 3 types to do hit reset*
 
@@ -70,4 +72,31 @@ git rebase - IT'S SAME AS MERGE BUT IN MERGE IT'S NOT IN A LINER ORDER
 	AFTER git rebase main
 		MAIN 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 
 
+
+git fetch - GIT FETCH IS NEXT FORM OF GIT PULL BUT PULL ONLY GETS ONLY ONE BRANCH AND ITS DATA BUT FETCH GETS ALL THE BRANCHES NAME BUT NOT ITS DATA
+		git fetch 
+
+
+git cherry-pick - GIT CHERRY-PICK IS USED TO MERGE ONLY ONE PARTICULAR OTHER BRANCHES COMMIT
+		git cherry-pick (commit name)
+
+
+git stash - THIS IS USED TO HIDE A COMMIT 
+		git stash
+
+
+git stash pop - THIS IS USED TO GET BACK THE HIDDEN COMMIT
+		git stash pop
+
+
+git stash show - SHOWS THE STASHED COMMITS
+
+
+git stash list - SHOWS STASH IN LIST
+
+
+git merge (branch name) --squash HEAD`(how many commits to be squashed) - THIS IS USED TO SQUASH (COMBINE) THE COMMENTS INTO ONE COMMITS 
+
+	I.E DEV HAVE 5 COMMITS AND WE WANT IT AS ONE COMMIT
+		WE DO git merge dev --squash HEAD~5
 
