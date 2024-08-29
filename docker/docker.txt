@@ -1,0 +1,32 @@
+
+
+---------- DOCKER ----------
+
+
+docker ps - IT IS USED TO CHECK PRESENT DOCKER IMAGES AND CONTAINERS
+
+
+docker pull - IT IS USED TO GET A IMAGE FROM DOCKER HUB 
+		E.G docker pull mysql
+
+
+docker images - IT IS USED TO CHECK THE IMAGES AVAILABLE IN THE MACHINE
+	
+
+docker run - IT IS USED TO RUN A IMAGE IN A MACHINE
+		docker run -d (image):latest
+		
+		-d = DETACH FROM THE SCREEN AND RUN IN BACKGROUND
+		     IT'S NECESSARY AS IT MAY FREEZE THE SCREEN
+
+docker kill - USED TO STOP THE RUNNING DOCKER IMAGE
+		docker kill (image)
+	     or docker stop (image) 
+
+
+docker -p = IT IS USED TO RUN DOCKER CONTAINER AT A PORT 
+		docker run -d -p (port in which you want to access):(port of the image) (image):(verion)
+
+
+
+
