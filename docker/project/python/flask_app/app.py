@@ -10,5 +10,5 @@ def home():
 def status():
     return jsonify({"message": "server is up and running"})
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run(debug=TRUE)
