@@ -1,6 +1,6 @@
 
 
----------- DOCKER ----------
+-------------------- DOCKER --------------------
 
 
 docker ps - IT IS USED TO CHECK PRESENT DOCKER IMAGES AND CONTAINERS
@@ -34,8 +34,116 @@ docker ps -a - TO SEE ALL BEFORE RUN
 docker system prune - DELETE ALL STOPED CONTAINERS
 
 
-docker rmi (image name) - TO DELETE IMAGES
-docker rmi -f $(docker ps -aq) - DELETES ALL IMAGES
+docker rmi (image name) - TO DELETE IMAGE
+docker rmi -f $(docker images -aq) - DELETES ALL IMAGES
+docker rmi -f $(docker ps -a) -  TO STOP DOCKER CONTAINERS
 
 
 docker build - docker build -t (image name):(version) (location of docker file {always use . i.e current location})
+
+
+docker exec -it (image id) bash -  IT IS USED TO RUN OTHER COMMANDS IN THE RUNNING CONTAINERS
+		E.G :- IN MYSQL IF WE WANT TO SEE THE DATABASES OR CREATE NEW DATABASE OR ANY CHANGES WE USE docker exec -it (image id) bash
+
+-------------------- DOCKER VOLUMES --------------------
+
+
+VOLUMES ARE USED TO STORE DATA AS IF WE RESTART,STOP OR REBOOT THE RUNNING CONTAINER THE DATA WILL BE LOST
+
+
+docker volume -ls - IT SHOWS THE PRESENT VOLUMES AVAILABLE TO BE ATTACHED TO THE DOCKER IMAGES
+
+
+docker volume create (volume name) - TO CREATE A NEW VOLUME
+
+
+docker volume remove (volume id) - TO DELETE VOLUME
+
+
+docker volume inspect (volume id) - IT SHOWS THE PROPERTIES OF THE VOLUME 
+		E.G LOCATION
+		THIS IS IMPORTANT AS WE NEED THE VOLUME LOCATION TO SEE THE DATA WHEN THE CONTAINER IS OFF
+
+
+***** ATTACHING VOLUME TO THE IMAGE *****
+
+WHILE WE WRITE THE DOCKER RUN COMMAND WE CAN ATTACH VOLUME WITH -v (volume name):(location) COMMAND
+	docker run -d --name (container name) -v (volume name):(location) (image name):(version)
+
+
+docker logs (container id) - IF A CONTAINER NOT ABLE TO BE RUN IT SHOWS WHAT AND WHERE THE PROBLEM OCCOURED
+
+
+-------------------- DOCKER NETWORKS --------------------
+
+
+IN DOCKER THERE ARE TYPES TO CONNECT AN CONTAINER IN A NETWORK TYPE
+BY DEFAULT IT IS CONNECTED TO bridge NETWORK
+THERE ARE 7 TYPES OF DOCKER NETWORK 
+
+1) bridge - IT'S DEFAULT NETWORK TYPE ON WHICH THE CONTAINER IS RUNNING
+
+2) host - BY THIS WE GIVE THE HOST PORT TO THE CONTAINER i.e 80
+
+3) none - EXTREME ISOLATION SO IT CANNOT PUBLISH IT'S OWN PORT
+
+4) user define bridge - WE CREATE OUR OWN NETWORK AND ALL THE SERVICES/CONTAINERS THAT WE WANT ON ONE PARTICULAR NETWORK IS RUN ON THAT NETWORK
+   			I.E 4 DOCKER CONTAINERS ARE REQUIRED FOR ONE PROJECT SO WE CREATE A NETWORK AND GIVE ALL THE NETWORK THE SAME NETWORK CONNECTION
+
+5) overlays - IF THERE ARE 2 DIFFERENT CONTAINERS ON 2 DIFFERENT SERVERS AND WE WANT THEM TO INERCONNECT WE USER overlays
+		IF IT IS IP WE WILL GET IPvLAN
+		IF IT IS MAC WE WILL GET MACvLAN
+
+6)
+
+7)
+
+***** COMMANDS *****
+
+docker network ls - TO SEE ALL NETWORKS
+
+
+docker network create (network type) (network name) - TO CREATE NETWORK
+
+
+docker network delete (network id/name) - TO DELETE NETWORK
+
+
+-------------------- YAML --------------------
+
+YAML IS YET ANOTHER MARKUP LANGUAGE USED TO DEFINE ALL THE DOCKER BUILD AND RUN COMMANDS IN IT
+SO WITH THIS WE DONT NEED TO WRITE ALL THE docker build -it ...... COMMANDS AND docker run -d -p ..... COMMAND RATHER THAN JUST WRITE WHAT COMMAND WE WANT AND IT'S PORT, ENVIRONMENT, NETWORK, DATABASE AND ALL.
+ALSO WE CAN GIVE A VERSION TO IT.
+
+docker compose docker.yml
+or docker compose up - TO START THE YAML FILE
+
+docker compose down - TO STOP THE YAML FILE
+
+
+-------------------- MULTISTAGE DOCKER BUILD --------------------
+
+DOCKER IMAGES USUALLY  HAVE LARGE IMAGE SIZE 
+AS WHEN WE DO RUN COMMAND WHILE BUILDING IT ALL THE UNWANTED CONTENTS ARE ALSO PRENENT
+SO WE CREATE DOCKERFILE IN 2 STAGES
+SUCH THAT 
+WE CREATE THE IMAGE
+AND FROM THE FIRST IMAGE WE CREATE A NEW IMAGE WHICH ONLY HAVE THE REQUIRED CONTENTS FOR DOCKER RUN
+
+THIS DECREASES THE IMAGE SIZE AND SAVES SPACE
+
+----------
+
+docker scout - IT CHECKS THE SECURITY STATUS OF IMAGE AND IF'S VULNERABILITY
+
+docker scout cves (image name):(version) - IT TELLS VULNERIABILITY AND IT'S LEVEL I.E unspecified, low, medium, high and critical 
+
+docker scout quickview (image name):(version) - 
+
+
+
+
+
+
+
+
