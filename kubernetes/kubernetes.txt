@@ -2,4 +2,54 @@
 
 ---------- This is Kubernetes Code CheatSheet ----------
 
+1) Create Pod, Namespace, Service, Deployment using YML file
 
+	kubectl apply -f pod.yml
+	
+	kubectl apply -f namespace.yml
+	
+	kubectl apply -f deployment.yml
+	
+	kubectl apply -f service.yml
+
+2) See the list of Pod, Namespace, Deployment, Service
+
+	kubectl get pods
+	kubectl get pods --all-namespaces - Pods with all namespaces
+	kubectl get pods -n (namespace) - view pod with specific namespace
+
+	kubectl get namespaces
+
+	kubectl get deployment
+
+	kubectl get service
+
+3) Delete Pod, Namaespace, Deployment, Service
+
+	kubectl delete pod (pod name)
+
+	kubectl delete namespace (namespace name)
+
+	kubectl delete deployment (deployment name)
+
+	kubectl delete service (service name)
+
+4) See the description of Pod, Namespace, Deployment, Service
+
+	kubectl describe pod (pod name)
+
+	kubectl describe namespace (namespace name)
+
+	kubectl describe deployment (deployment name)
+
+	kubectl describe service (service name)
+
+5) To see all Pod, Namespace, Service, Deployment in one command
+
+	kubectl get all
+
+6) Create , Delete all yml file in one command
+
+	kubectl apply -f .
+
+	kubectl delete -f .
