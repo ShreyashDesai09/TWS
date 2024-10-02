@@ -1,0 +1,116 @@
+
+
+---------- This is on how to create a Kubernetes Cluster with master node, worker node ----------
+
+1) First Create a new EC2 Instance.
+	This instance will consist of eksctl tool i.e to create an cluster of kubernetes
+
+2) Install awscli in it  
+	
+	For this first install unzip
+
+	** sudo apt-get unzip **
+
+	Then install aws cli
+
+	**********
+	
+	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	unzip awscliv2.zip
+	sudo ./aws/install
+	
+	**********
+
+3) Login with an user in this EC2 instance
+	- Create an User without console permission
+	- Give for instance Admin policy
+	- After creating user log it to CLI
+	- For this create a Access Key from security credentials
+	- ** aws configure **
+	- Enter the Access Key and Pawwsord
+	- User is login using CLI DONE
+	
+4) Install eksctl and kubectl tool in this instance
+
+	------ EKSCTL -----
+
+	**********
+
+	curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
+	sudo mv /tmp/eksctl /usr/local/bin
+
+	eksctl version
+
+	**********
+	
+	----- KUBECTL -----
+
+	**********
+
+	curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+
+	sudo mv ./kubectl /usr/local/bin
+
+	kubectl version --short --client
+
+	**********
+
+5) After this we can create a EKS cluster
+
+	**********
+
+	eksctl create cluster --name=my-cluster (Cluster name) \
+                      --region=us-west-2 (Use region in which the EC2 instance is) \
+                      --version=1.31 (Always Check Latest Version) \
+                      --without-nodegroup (define if you want to create with a nodegroup or without it)
+	
+	**********
+
+6) After this we have to give permission to user to use 3rd party software (Kubernetes)
+   So we have to create an IAM OIDC Provider
+
+   **********
+
+   eksctl utils associate-iam-oidc-provider \
+    --region us-west-2  \
+    --cluster my-cluster \
+    --approve
+
+    (HERE ALWAYS USE THE SAME CLUSTER NAME AND REGION AS GIVEN TO CLUSTER)
+    **********
+
+7) Now we create the node group 
+
+   **********
+
+   eksctl create nodegroup --cluster=my-cluster (Cluster name given as before)\
+                       --region=us-west-2 (region given as before)\
+                       --name=my-cluster (Node name which you want to give) \
+                       --node-type=t2.medium \
+                       --nodes=2 \
+                       --nodes-min=2 \
+                       --nodes-max=2 \
+                       --node-volume-size=29 \
+                       --ssh-access \
+                       --ssh-public-key=(Key name with which you logged in to ssh) 
+
+   **********
+
+8) Now we can create the Kubernetes Cluster using
+
+	**********
+	aws eks update-kubeconfig --region us-west-2 --name my-cluster
+	**********
+
+   This will require 10 to 15 minutes
+	
+9) To delete Kubernetes Cluster use
+
+	**********
+	eksctl delete cluster --name=my-cluster --region=us-west-2
+	**********
+
+
+	
