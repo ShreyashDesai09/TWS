@@ -53,3 +53,12 @@
 	kubectl apply -f .
 
 	kubectl delete -f .
+
+7) To set the port available at IP address and port even if service is of type *** ClusterIP ***
+
+	kubectl post-forward service/(service name) -n (namespace name) (at which port to get its access):(docker port) --address (IP ADDRESS) & (& to run it in background)
+
+8) To live watch Pod status and runtime
+
+	watch kubectl get pods
+

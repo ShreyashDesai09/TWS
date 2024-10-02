@@ -42,7 +42,7 @@ docker rmi -f $(docker ps -a) -  TO STOP DOCKER CONTAINERS
 docker build - docker build -t (image name):(version) (location of docker file {always use . i.e current location})
 
 
-docker exec -it (image id) bash -  IT IS USED TO RUN OTHER COMMANDS IN THE RUNNING CONTAINERS
+docker exec -it (image id) bash -  IT IS USED TO RUN OTHER COMMANDS IN THE RUNNING CONTAINERS OR ENTER THE DOCKER CONTAINER
 		E.G :- IN MYSQL IF WE WANT TO SEE THE DATABASES OR CREATE NEW DATABASE OR ANY CHANGES WE USE docker exec -it (image id) bash
 
 -------------------- DOCKER VOLUMES --------------------
