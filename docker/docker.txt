@@ -7,25 +7,29 @@ docker ps - IT IS USED TO CHECK PRESENT DOCKER IMAGES AND CONTAINERS
 
 
 docker pull - IT IS USED TO GET A IMAGE FROM DOCKER HUB 
-		E.G docker pull mysql
+
+	E.G docker pull mysql
 
 
 docker images - IT IS USED TO CHECK THE IMAGES AVAILABLE IN THE MACHINE
 	
 
 docker run - IT IS USED TO RUN A IMAGE IN A MACHINE
-		docker run -d (image):latest
+	
+	docker run -d (image):latest
 		
-		-d = DETACH FROM THE SCREEN AND RUN IN BACKGROUND
-		     IT'S NECESSARY AS IT MAY FREEZE THE SCREEN
+	-d = DETACH FROM THE SCREEN AND RUN IN BACKGROUND
+	     IT'S NECESSARY AS IT MAY FREEZE THE SCREEN
 
 docker kill - USED TO STOP THE RUNNING DOCKER IMAGE
-		docker kill (image)
-	     or docker stop (image) 
+	
+	docker kill (image)
+     OR docker stop (image) 
 
 
 docker -p = IT IS USED TO RUN DOCKER CONTAINER AT A PORT 
-		docker run -d -p (port in which you want to access):(port of the image) (image):(verion)
+
+	docker run -d -p (port in which you want to access):(port of the image) (image):(verion)
 
 
 docker ps -a - TO SEE ALL BEFORE RUN
@@ -35,7 +39,9 @@ docker system prune - DELETE ALL STOPED CONTAINERS
 
 
 docker rmi (image name) - TO DELETE IMAGE
+
 docker rmi -f $(docker images -aq) - DELETES ALL IMAGES
+
 docker rmi -f $(docker ps -a) -  TO STOP DOCKER CONTAINERS
 
 
@@ -43,9 +49,13 @@ docker build - docker build -t (image name):(version) (location of docker file {
 
 
 docker exec -it (image id) bash -  IT IS USED TO RUN OTHER COMMANDS IN THE RUNNING CONTAINERS OR ENTER THE DOCKER CONTAINER
-		E.G :- IN MYSQL IF WE WANT TO SEE THE DATABASES OR CREATE NEW DATABASE OR ANY CHANGES WE USE docker exec -it (image id) bash
+		
+E.G :- IN MYSQL IF WE WANT TO SEE THE DATABASES OR CREATE NEW DATABASE OR ANY CHANGES WE USE docker exec -it (image id) bash
+
+
 
 -------------------- DOCKER VOLUMES --------------------
+
 
 
 VOLUMES ARE USED TO STORE DATA AS IF WE RESTART,STOP OR REBOOT THE RUNNING CONTAINER THE DATA WILL BE LOST
@@ -61,17 +71,21 @@ docker volume remove (volume id) - TO DELETE VOLUME
 
 
 docker volume inspect (volume id) - IT SHOWS THE PROPERTIES OF THE VOLUME 
+
 		E.G LOCATION
 		THIS IS IMPORTANT AS WE NEED THE VOLUME LOCATION TO SEE THE DATA WHEN THE CONTAINER IS OFF
 
 
 ***** ATTACHING VOLUME TO THE IMAGE *****
 
+
 WHILE WE WRITE THE DOCKER RUN COMMAND WE CAN ATTACH VOLUME WITH -v (volume name):(location) COMMAND
+
+
 	docker run -d --name (container name) -v (volume name):(location) (image name):(version)
 
 
-docker logs (container id) - IF A CONTAINER NOT ABLE TO BE RUN IT SHOWS WHAT AND WHERE THE PROBLEM OCCOURED
+	docker logs (container id) - IF A CONTAINER NOT ABLE TO BE RUN IT SHOWS WHAT AND WHERE THE PROBLEM OCCOURED
 
 
 -------------------- DOCKER NETWORKS --------------------
@@ -79,7 +93,10 @@ docker logs (container id) - IF A CONTAINER NOT ABLE TO BE RUN IT SHOWS WHAT AND
 
 IN DOCKER THERE ARE TYPES TO CONNECT AN CONTAINER IN A NETWORK TYPE
 BY DEFAULT IT IS CONNECTED TO bridge NETWORK
+
+
 THERE ARE 7 TYPES OF DOCKER NETWORK 
+
 
 1) bridge - IT'S DEFAULT NETWORK TYPE ON WHICH THE CONTAINER IS RUNNING
 
@@ -98,7 +115,9 @@ THERE ARE 7 TYPES OF DOCKER NETWORK
 
 7)
 
+
 ***** COMMANDS *****
+
 
 docker network ls - TO SEE ALL NETWORKS
 
@@ -115,13 +134,17 @@ YAML IS YET ANOTHER MARKUP LANGUAGE USED TO DEFINE ALL THE DOCKER BUILD AND RUN 
 SO WITH THIS WE DONT NEED TO WRITE ALL THE docker build -it ...... COMMANDS AND docker run -d -p ..... COMMAND RATHER THAN JUST WRITE WHAT COMMAND WE WANT AND IT'S PORT, ENVIRONMENT, NETWORK, DATABASE AND ALL.
 ALSO WE CAN GIVE A VERSION TO IT.
 
-docker compose docker.yml
-or docker compose up - TO START THE YAML FILE
 
-docker compose down - TO STOP THE YAML FILE
+	docker compose docker.yml
+	or docker compose up - TO START THE YAML FILE
+
+
+	docker compose down - TO STOP THE YAML FILE
 
 
 -------------------- MULTISTAGE DOCKER BUILD --------------------
+
+
 
 DOCKER IMAGES USUALLY  HAVE LARGE IMAGE SIZE 
 AS WHEN WE DO RUN COMMAND WHILE BUILDING IT ALL THE UNWANTED CONTENTS ARE ALSO PRENENT

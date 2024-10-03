@@ -71,3 +71,15 @@
 
 		with this we dont need to enter namespace
 		kubectl get pods
+
+10) As we used to enter docker file using
+
+	docker exec -it (container name) bash
+
+    We can also enter minikube by 
+
+    	minikube ssh
+
+    And in kubernetes pods by
+
+    	kubectl exec -it (pod name) -- /bin/bash
