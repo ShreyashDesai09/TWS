@@ -62,3 +62,12 @@
 
 	watch kubectl get pods
 
+9) To make the namespace as default so we dont need to write it again 
+
+	kubectl config set-context --current --namespace=(namespace name)
+
+	E.G :- we need to write namespace in front of pod to see it
+		kubectl get pods -n (namespace)
+
+		with this we dont need to enter namespace
+		kubectl get pods
