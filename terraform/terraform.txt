@@ -1,0 +1,20 @@
+
+
+--------------- TERRAFORM CODES ---------------
+
+To Initialize the terraform in a particular folder 
+
+	terraform init
+
+	
+	terraform plan
+
+	
+	terraform apply
+
+1) To see the available terraform providers
+	
+	terraform providers 
+
+
+2)
