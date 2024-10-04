@@ -6,15 +6,23 @@ To Initialize the terraform in a particular folder
 
 	terraform init
 
-	
+To Verify the contents of the infrastructure, checking arguments and attributes	
+
 	terraform plan
 
-	
+To Create the Infrastructure
+
 	terraform apply
+
+--------------------------------------------------
 
 1) To see the available terraform providers
 	
 	terraform providers 
 
 
-2)
+2) To destroy the applied infrastructure
+	
+	terraform destroy
+
+3)
