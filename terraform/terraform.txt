@@ -25,4 +25,3 @@ To Create the Infrastructure
 	
 	terraform destroy
 
-3)

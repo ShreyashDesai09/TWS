@@ -1,0 +1,27 @@
+
+
+---------- This is provider file ----------
+
+It is necessary to create the provider file to access other providers that are not available to local
+
+**********************************************************
+
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.70.0"
+    }
+  }
+}
+
+
+**********************************************************
+
+In this aws provider is added
+with this we can access to all aws resource types
+
+E.G 	aws_instance
+	aws_s3_bucket
+	aws_vpc_default

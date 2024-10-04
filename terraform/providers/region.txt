@@ -1,0 +1,13 @@
+
+This is region file as we need to define a region where the Infrastructure should be formed
+
+
+**************************************************
+
+
+provider "aws" {
+	region = us-east-1
+}
+
+
+**************************************************
