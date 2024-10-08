@@ -25,3 +25,11 @@ To Create the Infrastructure
 	
 	terraform destroy
 
+3) To see providers
+
+	terraform providers
+
+4) To see the terraform states
+
+	terraform state list
+
